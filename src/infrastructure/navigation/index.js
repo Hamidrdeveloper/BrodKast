@@ -48,7 +48,7 @@ export const Navigation = () => {
           },
         }}>
 
-
+<Stack.Screen name="Settingcreen" component={Settingcreen} />
         <Stack.Screen name="Wellcome" component={WellcomeScreen} />
         <Stack.Screen name="Home" component={Home}
 
@@ -58,7 +58,7 @@ export const Navigation = () => {
         <Stack.Screen name="ReminderScreen" component={ReminderScreen} />
 
         <Stack.Screen name="GroupCreateScreen" component={GroupCreateScreen} />
-        <Stack.Screen name="Settingcreen" component={Settingcreen} />
+        {/* <Stack.Screen name="Settingcreen" component={Settingcreen} /> */}
         <Stack.Screen name="GeestesScreen" component={GeestesScreen} />
         <Stack.Screen name="InvateScreen" component={InvateScreen} />
         <Stack.Screen name="IntroScreen" component={IntroScreen} />
