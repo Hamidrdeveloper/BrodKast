@@ -95,10 +95,10 @@ const clearStorage = async () => {
        // } else if (name === 'sign-out') {
        //   ApiCalendar.handleSignoutClick();
        // }
-    if(Platform.OS=="android"){
+    
       requestCameraPermission();
 
-    }
+   
     // PushNotification.configure({
     //   //...
     //    requestPermissions: Platform.OS === 'ios'
