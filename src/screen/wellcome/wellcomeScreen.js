@@ -15,7 +15,7 @@ import { EventsContext } from '../../services/event/event.context';
 import { RemindersContext } from '../../services/reminder/reminder.context';
 import { GroupsContext } from '../../services/group/group.context';
 import { AuthenticationContext } from '../../services/signup/sgnup.context';
-import Contacts from 'react-native-unified-contacts';
+import Contacts from 'react-native-contacts';
 import { checkUser } from '../../services/signup/dataPost';
 import { PermissionsAndroid } from 'react-native';
 import Indicator from '../../components/Indicator';
@@ -42,6 +42,7 @@ const eventFromNow = {
  };
 export const WellcomeScreen = ({ navigation })=> {
 useEffect(() => {
+  Contacts.requestPermission()
   setTimeout(() => {
   Notifications.registerRemoteNotifications();
 
