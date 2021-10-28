@@ -1,15 +1,15 @@
-import React, {Component, useContext, useEffect, useRef, useState} from 'react';
-import {Text} from 'react-native';
-import {View, FlatList, Modal, TouchableOpacity} from 'react-native';
-import {ActivityIndicator} from 'react-native-paper';
-import {colors} from '../infrastructure/theme/colors';
+import React, { Component, useContext, useEffect, useRef, useState } from 'react';
+import { Text } from 'react-native';
+import { View, FlatList, Modal, TouchableOpacity } from 'react-native';
+import { ActivityIndicator } from 'react-native-paper';
+import { colors } from '../infrastructure/theme/colors';
 import DynamicallySelectedPicker from 'react-native-dynamically-selected-picker';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {Checkbox} from 'react-native-paper';
-import {DateTimePickerModal} from '../datePicker/DateTimePickerModal';
+import { Checkbox } from 'react-native-paper';
+import { DateTimePickerModal } from '../datePicker/DateTimePickerModal';
 
 const Title = ['Day', 'Week', 'Month', 'Year'];
-const RepeatCalender = ({visible, onDone, onClose}) => {
+const RepeatCalender = ({ visible, onDone, onClose }) => {
   const [isDate, setIsDate] = useState(false);
   const [date, setDate] = useState('');
   const [isShow, setIsShow] = useState(false);
@@ -36,7 +36,7 @@ const RepeatCalender = ({visible, onDone, onClose}) => {
       label: 'Year',
     },
   ]);
-  const {itemIndex, setItemIndex} = React.useState(0);
+  const { itemIndex, setItemIndex } = React.useState(0);
 
   const onChange = () => {
     switch (isDone) {
@@ -100,6 +100,14 @@ const RepeatCalender = ({visible, onDone, onClose}) => {
     console.log('isDone', isDone);
   }, [isDone]);
   useEffect(() => {
+    setIsDate(false);
+    setDate('');
+    setIsShow(false);
+    setIndexF(1);
+    setIsDone(0);
+    setIsCheckBox(1);
+    setOccurrences(0);
+    setIndexN(1);
     setIsShow(visible);
   }, [visible]);
   const updateSelectedItem = index => {
@@ -158,7 +166,7 @@ const RepeatCalender = ({visible, onDone, onClose}) => {
                 onPress={() => {
                   onChange();
                 }}>
-                <Text style={{color: '#7CE0DA'}}>Done</Text>
+                <Text style={{ color: '#7CE0DA' }}>Done</Text>
               </TouchableOpacity>
             </View>
             {isDone == 1 ? (
@@ -198,7 +206,7 @@ const RepeatCalender = ({visible, onDone, onClose}) => {
                 {isCheckBox == 3 ? (
                   <DynamicallySelectedPicker
                     items={number}
-                    onScroll={({index, item}) => {
+                    onScroll={({ index, item }) => {
                       setOccurrences(index + 1);
                       setIsDone(2);
                     }}
@@ -209,7 +217,7 @@ const RepeatCalender = ({visible, onDone, onClose}) => {
                   <>
                     <DynamicallySelectedPicker
                       items={number}
-                      onScroll={({index, item}) => {
+                      onScroll={({ index, item }) => {
                         setIndexN(index + 1);
                       }}
                       height={300}
@@ -234,7 +242,7 @@ const RepeatCalender = ({visible, onDone, onClose}) => {
                           label: 'Year',
                         },
                       ]}
-                      onScroll={({index, item}) => {
+                      onScroll={({ index, item }) => {
                         setIndexF(index + 1);
                         checkRepetType(item.value);
                       }}
